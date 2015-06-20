@@ -3,8 +3,9 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class FirebaseController : MonoBehaviour {
-	private IFirebase firebaseObject,positionRef, positionRefx, positionRefy, positionRefz;
+public class FirebaseController : MonoBehaviour
+{
+	private IFirebase firebaseObject, positionRef, positionRefx, positionRefy, positionRefz;
 	private volatile float positionx, positiony, positionz;
 	private bool initialized = false;
 	private Queue<RPCItem> invokeQueue = new Queue<RPCItem>();
@@ -63,6 +64,7 @@ public class FirebaseController : MonoBehaviour {
 		if (!initialized && !string.IsNullOrEmpty (path)) {
 			initialized = true;
 			firebaseObject = Firebase.CreateNew (path);
+			Debug.Log(firebaseObject);
 			if (firebaseObject != null) {
 				FirebaseDebugLog.Initialize(path + "/DebugLog");
 				positionRef = firebaseObject.Child ("Position");

@@ -28,12 +28,12 @@ public class TapToMove : MonoBehaviour {
 			//Create a Ray on the tapped / clicked position
 			Ray ray;
 			//for unity editor
-			#if UNITY_EDITOR
+#if (UNITY_EDITOR || UNITY_STANDALONE)
 			ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			//for touch device
-			#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
+#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_WP8)
 			ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-			#endif
+#endif
 			
 			//Check if the ray hits any collider
 			if(Physics.Raycast(ray,out hit))

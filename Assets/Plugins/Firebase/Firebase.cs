@@ -3,13 +3,16 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
-public class Firebase  {
+public class Firebase {
 	private static IList<IFirebaseFactory> firebasePlatforms = new List<IFirebaseFactory>();
 
-	private Firebase() {
-	}
+	private Firebase() {}
 
 	static Firebase() {
+#if (UNITY_EDITOR || UNITY_STANDALONE)
+		Register (new FirebaseStandaloneImpl.Factory ());
+#endif
+
 #if UNITY_ANDROID
 		Register (new FirebaseAndroidImpl.Factory ());
 #endif

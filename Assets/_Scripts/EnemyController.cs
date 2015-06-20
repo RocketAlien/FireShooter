@@ -12,11 +12,12 @@ public class EnemyController : MonoBehaviour {
 	void Start() {
 		firebaseController = GetComponent<FirebaseController> ();
 
-		if (Application.platform == RuntimePlatform.IPhonePlayer) {
+		if (Application.platform == RuntimePlatform.Android) {
 			firebaseController.SetPath ("https://incandescent-torch-2575.firebaseio.com/Android/");
 		} else {
 			firebaseController.SetPath ("https://incandescent-torch-2575.firebaseio.com/IPhone/");
 		}
+		firebaseController.SetPath ("https://flickering-inferno-2250.firebaseio.com/");
 
 		firebaseController.HandleCall("Shot", (str) => {
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);

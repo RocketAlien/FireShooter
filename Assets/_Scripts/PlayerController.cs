@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 		} else {
 			firebaseController.SetPath ("https://incandescent-torch-2575.firebaseio.com/IPhone/");
 		}
+		firebaseController.SetPath ("https://flickering-inferno-2250.firebaseio.com/");
 
 		firebaseController.HandleCall ("Shot", (str) => {
 			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);

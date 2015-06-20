@@ -1,1 +1,15 @@
-Temp/
+# Generated Unity files and folders
+*.unityproj
+*.sln
+*.csproj
+*.userprefs
+*.pidb
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild*/
+
+# Other miscellaneous files
+.DS_Store
+[Tt]humbs.db
+*~
