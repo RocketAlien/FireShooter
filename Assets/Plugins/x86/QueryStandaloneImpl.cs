@@ -1,22 +1,21 @@
 ﻿#if (UNITY_EDITOR || UNITY_STANDALONE)
 internal class QueryStandaloneImpl : IQuery
 {
-	AndroidJavaObject queryRef;
 	EventHandler<ChangedEventArgs> valueUpdatedEvent, childAddedEvent;
 	ValueEventListener valueUpdatedListener;
 	ChildEventListener childAddedListener;
 
 	protected QueryStandaloneImpl ()
-	{
-	}
+	{}
 	
-	public event EventHandler<ChangedEventArgs> ValueUpdated {
+	public event EventHandler<ChangedEventArgs> ValueUpdated
+	{
 		add
 		{
 			valueUpdatedEvent += value;
 			if (valueUpdatedListener == null)
 			{
-				valueUpdatedListener = new ValueEventListener(this);
+				valueUpdatedListener = new ValueEventListener (this);
 			}
 		}
 		remove
@@ -29,25 +28,25 @@ internal class QueryStandaloneImpl : IQuery
 		}
 	}
 
-	public event EventHandler<ChangedEventArgs> ChildAdded {
-		add {
+	public event EventHandler<ChangedEventArgs> ChildAdded
+	{
+		add
+		{
 			childAddedEvent += value;
-			
-			if (childAddedListener == null) {
-				childAddedListener = new ChildEventListener(this);
+			if (childAddedListener == null)
+			{
+				childAddedListener = new ChildEventListener (this);
 			}
-			
 		}
-		remove {
+		remove
+		{
 			childAddedEvent -= value;
-			
-			if (childAddedEvent == null) {
-
+			if (childAddedEvent == null)
+			{
 				childAddedListener = null;
 			}
 		}
 	}
-
 	
 	public event EventHandler<ErrorEventArgs> Error;
 
@@ -56,7 +55,7 @@ internal class QueryStandaloneImpl : IQuery
 		EventHandler<ChangedEventArgs> handler = valueUpdatedEvent;
 		if (handler != null)
 		{
-			handler(this, new ChangedEventArgs() { DataSnapshot = snapshot });
+			handler(this, new ChangedEventArgs () { DataSnapshot = snapshot });
 		}
 	}
 
@@ -65,7 +64,7 @@ internal class QueryStandaloneImpl : IQuery
 		EventHandler<ChangedEventArgs> handler = childAddedEvent;
 		if (handler != null)
 		{
-			handler(this, new ChangedEventArgs() { DataSnapshot = snapshot });
+			handler(this, new ChangedEventArgs () { DataSnapshot = snapshot });
 		}
 	}
 }

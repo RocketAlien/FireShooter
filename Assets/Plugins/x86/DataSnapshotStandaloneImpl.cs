@@ -1,4 +1,6 @@
-﻿#if (UNITY_EDITOR || UNITY_STANDALONE)
+﻿using System.Collections.Generic;
+
+#if (UNITY_EDITOR || UNITY_STANDALONE)
 internal class DataSnapshotStandaloneImpl : IDataSnapshot
 {
 	public DataSnapshotStandaloneImpl ()
