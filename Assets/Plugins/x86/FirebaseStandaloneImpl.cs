@@ -1,8 +1,9 @@
-﻿#if (UNITY_EDITOR || UNITY_STANDALONE)
+﻿using System;
+using UnityEngine;
+
+#if (UNITY_EDITOR || UNITY_STANDALONE)
 internal class FirebaseStandaloneImpl : QueryStandaloneImpl, IFirebase
 {
-	private static bool initialized = false;
-	
 	public FirebaseStandaloneImpl (string path)
 	{}
 
