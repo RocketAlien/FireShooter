@@ -1,11 +1,10 @@
 ﻿#if (UNITY_EDITOR || UNITY_STANDALONE)
 internal class FirebaseStandaloneImpl : QueryStandaloneImpl, IFirebase
 {
-	static bool initialized = false;
+	private static bool initialized = false;
 	
 	public FirebaseStandaloneImpl (string path)
-	{
-	}
+	{}
 
 	public IFirebase Child (string name)
 	{
@@ -58,7 +57,6 @@ internal class FirebaseStandaloneImpl : QueryStandaloneImpl, IFirebase
 
 	public class Factory : IFirebaseFactory
 	{
-		#region IFirebaseFactory implementation
 		public IFirebase TryCreate (string path)
 		{
 			if (Application.platform == RuntimePlatform.WindowsEditor ||
@@ -70,7 +68,6 @@ internal class FirebaseStandaloneImpl : QueryStandaloneImpl, IFirebase
 			}
 			return null;
 		}
-		#endregion
 	}
 }
 #endif

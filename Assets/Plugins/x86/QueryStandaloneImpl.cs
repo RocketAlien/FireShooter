@@ -1,9 +1,10 @@
 ﻿#if (UNITY_EDITOR || UNITY_STANDALONE)
 internal class QueryStandaloneImpl : IQuery
 {
-	EventHandler<ChangedEventArgs> valueUpdatedEvent, childAddedEvent;
-	ValueEventListener valueUpdatedListener;
-	ChildEventListener childAddedListener;
+	private EventHandler<ChangedEventArgs> valueUpdatedEvent;
+	private EventHandler<ChangedEventArgs> childAddedEvent;
+	private ValueEventListener valueUpdatedListener;
+	private ChildEventListener childAddedListener;
 
 	protected QueryStandaloneImpl ()
 	{}
@@ -50,7 +51,7 @@ internal class QueryStandaloneImpl : IQuery
 	
 	public event EventHandler<ErrorEventArgs> Error;
 
-	void OnValueUpdated(DataSnapshotAndroidImpl snapshot)
+	private void OnValueUpdated (DataSnapshotAndroidImpl snapshot)
 	{
 		EventHandler<ChangedEventArgs> handler = valueUpdatedEvent;
 		if (handler != null)
@@ -59,7 +60,7 @@ internal class QueryStandaloneImpl : IQuery
 		}
 	}
 
-	void OnChildAdded(DataSnapshotAndroidImpl snapshot)
+	private void OnChildAdded (DataSnapshotAndroidImpl snapshot)
 	{
 		EventHandler<ChangedEventArgs> handler = childAddedEvent;
 		if (handler != null)

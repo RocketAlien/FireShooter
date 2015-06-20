@@ -4,8 +4,7 @@
 internal class DataSnapshotStandaloneImpl : IDataSnapshot
 {
 	public DataSnapshotStandaloneImpl ()
-	{
-	}
+	{}
 	
 	public IDataSnapshot Child (string path)
 	{
